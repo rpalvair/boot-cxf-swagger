@@ -1,3 +1,3 @@
-url de la doc swagger : http://localhost:8080/services/api-docs?url=/services/swagger.json
-document swagger en json : http://localhost:8080/services/swagger.json
-document swagger en yaml : http://localhost:8080/services/swagger.yaml
+url de la doc swagger : http://localhost:8080/api/api-docs?url=/api/swagger.json
+document swagger en json : http://localhost:8080/api/swagger.json
+document swagger en yaml : http://localhost:8080/api/swagger.yaml
