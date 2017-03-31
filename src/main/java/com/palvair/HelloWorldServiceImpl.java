@@ -1,10 +1,6 @@
 package com.palvair;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 
 @Api(value = "/sayHello", description = "Hello world")
 public class HelloWorldServiceImpl implements HelloWorldService {
@@ -18,7 +14,7 @@ public class HelloWorldServiceImpl implements HelloWorldService {
             @ApiResponse(code = 200,
                     message = "Message bien reçu",
                     response = String.class
-            ) }
+            )}
     )
     @Override
     public String sayHello(@ApiParam(name = "test", value = "test") String a) {

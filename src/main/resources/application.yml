@@ -1,2 +1,6 @@
 cxf:
   path : /api
+
+logging:
+    level:
+      com.palvair: DEBUG
