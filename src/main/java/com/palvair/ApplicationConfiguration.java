@@ -5,8 +5,6 @@ import org.apache.cxf.Bus;
 import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.jaxrs.swagger.Swagger2Feature;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,8 +28,6 @@ public class ApplicationConfiguration {
     @Autowired
     private ApplicationContext applicationContext;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationConfiguration.class);
-
     @Bean
     public Server rsServer() {
         JAXRSServerFactoryBean endPoint = new JAXRSServerFactoryBean();
@@ -49,7 +45,6 @@ public class ApplicationConfiguration {
                 .filter(this::isResource)
                 .map(this::getClass)
                 .filter(Objects::nonNull)
-                .peek(aClass -> LOGGER.debug("class {}", aClass))
                 .collect(Collectors.toList());
     }
 
