@@ -46,11 +46,19 @@ public class ApplicationConfiguration {
 
     private List<Class<?>> getResourceClasses() {
         return Stream.of(applicationContext.getBeanNamesForAnnotation(Service.class))
-                .filter(s -> applicationContext.findAnnotationOnBean(s, Path.class) != null)
-                .map(s -> applicationContext.getBean(s).getClass())
+                .filter(this::isResource)
+                .map(this::getClass)
                 .filter(Objects::nonNull)
                 .peek(aClass -> LOGGER.debug("class {}", aClass))
                 .collect(Collectors.toList());
+    }
+
+    private Class<?> getClass(final String beanName) {
+        return applicationContext.getBean(beanName).getClass();
+    }
+
+    private boolean isResource(final String beanName) {
+        return applicationContext.findAnnotationOnBean(beanName, Path.class) != null;
     }
 
     public static void main(String[] args) {
