@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 @Service
 @Path("/sayHello")
 @Api(value = "/sayHello", description = "Hello world")
-public class HelloWorldServiceImpl implements HelloWorldService {
+public class HelloWorldServiceImpl {
 
     @ApiOperation(
             value = "Renvoie un message",
@@ -27,7 +27,6 @@ public class HelloWorldServiceImpl implements HelloWorldService {
     @GET
     @Path("/{a}")
     @Produces(MediaType.TEXT_PLAIN)
-    @Override
     public String sayHello(@ApiParam(name = "test", value = "test") String a) {
         return "Hello " + a + ", Welcome to CXF RS Spring Boot World!!!";
     }
