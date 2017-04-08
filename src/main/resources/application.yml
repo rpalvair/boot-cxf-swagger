@@ -1,6 +1,8 @@
 cxf:
   path : /api
-
+  jaxrs:
+    component-scan: true
+    classes-scan-packages: com.palvair
 logging:
     level:
       com.palvair: DEBUG
